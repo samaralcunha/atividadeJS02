@@ -1,27 +1,24 @@
-*{
-    margin: 0;
-    margin-top: 5px;
+body { 
+    background-color: #ffcbdb;
 }
-body {
-    background-color: #bde0fe;
-}
+
 input {
-    text-align: center;
-    background: #a2d2ff;
-    border-color: #cdb4db;
-    margin-bottom: 10px;
+    background-color: #FF6EC7;
+    border-radius: 4px;
 }
+
 button {
     width: 10vw;
-    color: #cdb4db;
-    background-color: white;
-    border-color: #cdb4db;
+    margin-top: 10px;
+    background-color: #D8BFD8;
+    border-radius: 4px;
 }
+
+img {
+   position: absolute;
+   top: 55%;
+}
+
 div {
     text-align: center;
-}
-img {
-    width: 28vw;
-    position: relative;
-    top: 40vh;
 }

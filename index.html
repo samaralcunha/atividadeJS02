@@ -1,52 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
     <title>Lista 2</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div>
-        <h4>Digite a atividade: </h4>
-        <input type="text" id="numero"> <br>
-        <button onclick="selecionarQuestao()">Enviar</button>
+      <h4>Digite a opção (1 a 6):</h4>
+      <input type="text" id="numero" /> <br />
+      <button onclick="selecionarQuestao()">Enviar</button>
     </div>
-    <img src="Rarity.png">
-
+    <img src="humana.jpg" />
     <script>
-        let txtNumero = document.getElementById("numero");
-        function selecionarQuestao() {
-            let num_selecionado = txtNumero.value;
-            switch (num_selecionado) {
-                case "1": bebida(3); break;
-                case "2": concurso();
-            }
-        }
+      let txtNumero = document.getElementById("numero");
 
-        function bebida(quantidade) {
-            let litros = quantidade * 12 * 0.35;
-            let preco = quantidade * 38;
-            return alert(`A quantidade em litros foi ${litros.toFixed(0)} e com preço total de ${preco.toFixed(2)}`);
+      function selecionarQuestao() {
+        let numero_selecionado = txtNumero.value;
+        //console.log(numero_selecionado)
+        switch (numero_selecionado) {
+          case "1":
+            arcoIris();
+            break;
+          case "2":
+            endereco();
+            break;
+          case "3":
+            habilidade();
+            break;
+          case "4":
+            experiencia(7);
+            break;
+          case "5":
+            dados();
+            break;
+          case "6":
+            maiorIdade();
         }
-        function concurso() {
-            let nota_soma
-            let notas = [];
-            let quesitos = ["Criatividade", "Originalidade", "Elegância", "Acabamento", "Conservação"];
-            for (i = 0; i != 5; i++) {
-                notas[i] =  prompt(`Nota do quesito ${quesitos[i]}: `)
-            }
-            let maior_nota = Math.max(...notas);
-            let menor_nota = Math.min(...notas);
-            notas.forEach((e) => nota_soma += e);
-            nota_soma -= maior_nota;
-            nota_soma -= menor_nota;
-            alert(nota_soma);
+      }
+      function arcoIris() {
+        var arco_iris = ["Vermelho", "Laranja", "Marrom", "Azul"];
+        arco_iris.splice(2, 1, "Amarelo", "Verde");
+        arco_iris.splice(5, 0, "Roxo");
+        alert(arco_iris);
+      }
+      function endereco() {
+        var endereco = {
+          rua: "Itaujubá",
+          numero: "230",
+          bairro: "Floresta",
+          cidade: "Belo Horizonte",
+          uf: "MG",
+        };
+
+        alert(
+          `O usuário mora em ${endereco.cidade}/MG no bairro ${endereco.bairro} na rua ${endereco.rua} n°${endereco.numero}`
+        );
+      }
+      function habilidade() {
+        let _habilidade = ["Javascript", "ReactJS", "React Native", "Angular"];
+        function verifica() {
+          if (_habilidade.indexOf("Javascript") !== -1) {
+            return true;
+          } else {
+            return false;
+          }
         }
+        alert(verifica());
+      }
+      function experiencia() {
+        let anosEstudo = prompt("Digite seus anos de estudo: ");
+        function anos() {
+          if (anosEstudo > 0 && anosEstudo <= 1) {
+            return "Tipo de experiencia --Junior--";
+          } else if (anosEstudo >= 1 && anosEstudo <= 3) {
+            return "Tipo de experiencia --Pleno--";
+          } else if (anosEstudo >= 3 && anosEstudo <= 6) {
+            return "Tipo de experiencia --Senior--";
+          } else {
+            return "Tipo de experiencia --Mestre Jedi--";
+          }
+        }
+        alert(anos(anosEstudo));
+      }
+      function dados() {
+        let resultado_final = "";
+        var usuarios = [
+          {
+            nome: "Gabriel",
+            habilidades: ["Javascript", "ReactJS", "Redux"],
+          },
+          {
+            nome: "Lara",
+            habilidades: ["JAVA", "PHP", "Laravel"],
+          },
+        ];
+        usuarios.forEach((e) => {
+          let nome = e.nome;
+          let habilidades = e.habilidades;
+          resultado_final += `\n O ${nome} possui as seguintes habilidades: ${habilidades}`;
+        });
+        console.log(resultado_final);
+      }
+      function maiorIdade() {
+        let _maior18 = [];
+        const pessoas = [
+          {
+            nome: "Vicente",
+            idade: 12,
+          },
+          {
+            nome: "Lua",
+            idade: 2,
+          },
+          {
+            nome: "Taylor",
+            idade: 30,
+          },
+          {
+            nome: "Lucas",
+            idade: 18,
+          },
+          {
+            nome: "Fernanda",
+            idade: 18,
+          },
+          {
+            nome: "Melanie",
+            idade: 26,
+          },
+          {
+            nome: "Adam",
+            idade: 56,
+          },
+          {
+            nome: "Vitor",
+            idade: 13,
+          },
+          {
+            nome: "Samuel",
+            idade: 8,
+          },
+          {
+            nome: "Samara",
+            idade: 16,
+          }
+        ];
+
+        pessoas.forEach(({idade}) => {
+          if (idade >= 18) {
+            _maior18.push(idade);
+          }
+        });
+        alert(_maior18);
+      }
     </script>
-</body>
-
+  </body>
 </html>

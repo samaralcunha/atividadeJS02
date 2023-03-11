@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Lista 2</title>
+</head>
+
+<body>
+    <div>
+        <h4>Digite a atividade: </h4>
+        <input type="text" id="numero"> <br>
+        <button onclick="selecionarQuestao()">Enviar</button>
+    </div>
+    <img src="Rarity.png">
+
+    <script>
+        let txtNumero = document.getElementById("numero");
+        function selecionarQuestao() {
+            let num_selecionado = txtNumero.value;
+            switch (num_selecionado) {
+                case "1": bebida(3); break;
+                case "2": concurso();
+            }
+        }
+
+        function bebida(quantidade) {
+            let litros = quantidade * 12 * 0.35;
+            let preco = quantidade * 38;
+            return alert(`A quantidade em litros foi ${litros.toFixed(0)} e com preço total de ${preco.toFixed(2)}`);
+        }
+        function concurso() {
+            let nota_soma
+            let notas = [];
+            let quesitos = ["Criatividade", "Originalidade", "Elegância", "Acabamento", "Conservação"];
+            for (i = 0; i != 5; i++) {
+                notas[i] =  prompt(`Nota do quesito ${quesitos[i]}: `)
+            }
+            let maior_nota = Math.max(...notas);
+            let menor_nota = Math.min(...notas);
+            notas.forEach((e) => nota_soma += e);
+            nota_soma -= maior_nota;
+            nota_soma -= menor_nota;
+            alert(nota_soma);
+        }
+    </script>
+</body>
+
+</html>
